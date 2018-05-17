@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,63 +14,29 @@ namespace IvanVGame
         private bool canAttack = true;
         Random rand = new Random();
 
-        /* Initializes type of hero depending on character parameter and
-         first or second hero depending on integer */
-        public void InitializeHero(int i, char ch)
+        /* Initializes type of hero depending on character parameter */
+        public Hero InitializeHero(char ch)
         {
+            Hero hero = null;
             switch (ch)
             {
                 case 'w':
-                    if (i == 1)
-                    {
-                        HeroFirst = new Warrior();
-                    }
-                    else
-                    {
-                        HeroSecond = new Warrior();
-                    }
+                    hero = new Warrior();
                     break;
                 case 'k':
-                    if (i == 1)
-                    {
-                        HeroFirst = new Knight();
-                    }
-                    else
-                    {
-                        HeroSecond = new Knight();
-                    }
+                    hero = new Knight();
                     break;
                 case 'a':
-                    if (i == 1)
-                    {
-                        HeroFirst = new Assassin();
-                    }
-                    else
-                    {
-                        HeroSecond = new Assassin();
-                    }
+                    hero = new Assassin();
                     break;
                 case 'm':
-                    if (i == 1)
-                    {
-                        HeroFirst = new Monk();
-                    }
-                    else
-                    {
-                        HeroSecond = new Monk();
-                    }                    
+                    hero = new Monk();                 
                     break;
                 case 'c':
-                    if (i==1)
-                    {
-                        HeroFirst = new Clumsy();
-                    }
-                    else
-                    {
-                        HeroSecond = new Clumsy();
-                    }
+                    hero = new Clumsy();                    
                     break;
             }
+            return hero;
         }
 
 
@@ -94,28 +60,16 @@ namespace IvanVGame
             return false;
         }
 
-        /* Checks if a hero is still alive,
-         * else returns false and asigns 0 to health points*/
-        public bool StillAlive(Hero attackedHero)
-        {
-            if (attackedHero.HealthPoints <= .0m)
-            {
-                attackedHero.HealthPoints = .0m;
-                return false;
-            }
-            return true;
-        }
-
 
         /* Checks three condition and performs an attack,
          * if a hero is dead asigns false to canAttack,
          * so an attack can no longer be performed */
         public void AttackInProgress(Hero attackingHero, Hero attackedHero)
         {
-            if (ReadyToStart() && StillAlive(attackedHero) && canAttack)
+            if (ReadyToStart() && attackedHero.StillAlive() && canAttack)
             {
                 attackingHero.Attack(attackedHero);
-                if (!StillAlive(attackedHero))
+                if (!attackedHero.StillAlive())
                 {
                     canAttack = false;
                 }
