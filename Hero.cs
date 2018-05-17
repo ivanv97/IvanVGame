@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,6 +29,18 @@ namespace IvanVGame
                 return;
             }
             HealthPoints -= finalDamage;
+        }
+
+        /* Checks if a hero is still alive,
+         * else returns false and asigns 0 to health points*/
+        public bool StillAlive()
+        {
+            if (HealthPoints <= .0m)
+            {
+                HealthPoints = .0m;
+                return false;
+            }
+            return true;
         }
     }
 }
