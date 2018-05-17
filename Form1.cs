@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,7 +24,7 @@ namespace IvanVGame
 
         //read-only property that holds the X coordinate of second sword picture
         private int SecondSwordX { get { return pictureSwordSecond.Location.X; } }
-
+        
         /* Methods that hide controls after first/ second
          hero is instantiated */
         private void HideControlsFirst()
@@ -48,6 +48,84 @@ namespace IvanVGame
         }
 
 
+        /*Hero selection method for the buttons of first hero types
+         and second hero types*/
+        private void HeroSelection(int i, char ch)
+        {            
+            if (i==1)
+            {
+                engine.HeroFirst = engine.InitializeHero(ch);
+                HideControlsFirst();
+                InitializeFirstHeroAttributes(engine.HeroFirst);
+
+                if (engine.RandomStart() == 1)
+                {
+                    btnAttackOfFirstHero.Enabled = true;
+                    btnAttackOfSecondHero.Enabled = false;
+                }
+                else
+                {
+                    btnAttackOfFirstHero.Enabled = false;
+                    btnAttackOfSecondHero.Enabled = true;
+                }
+
+                switch (ch)
+                {
+                    case 'w':
+                        labelFirstHero.Text = "Warrior";
+                        pictureFirstHero.Image = IvanVGame.Properties.Resources.AC3L___Warrior;
+                        break;
+                    case 'k':
+                        labelFirstHero.Text = "Knight";
+                        pictureFirstHero.Image = IvanVGame.Properties.Resources.knight;
+                        break;
+                    case 'a':
+                        labelFirstHero.Text = "Assassin";
+                        pictureFirstHero.Image = IvanVGame.Properties.Resources.ASSASSIN;
+                        break;
+                    case 'm':
+                        labelFirstHero.Text = "Monk";
+                        pictureFirstHero.Image = IvanVGame.Properties.Resources.monk;
+                        break;
+                    case 'c':
+                        labelFirstHero.Text = "Clumsy";
+                        pictureFirstHero.Image = IvanVGame.Properties.Resources.Clumsy;
+                        break;
+
+                }
+            }
+            else
+            {
+                engine.HeroSecond = engine.InitializeHero(ch);
+                HideControlsSecond();
+                InitializeSecondHeroAttributes(engine.HeroSecond);
+                switch (ch)
+                {
+                    case 'w':
+                        labelSecondHero.Text = "Warrior";
+                        pictureSecondHero.Image = IvanVGame.Properties.Resources.AC3L___Warrior;
+                        break;
+                    case 'k':
+                        labelSecondHero.Text = "Knight";
+                        pictureSecondHero.Image = IvanVGame.Properties.Resources.knight;
+                        break;
+                    case 'a':
+                        labelSecondHero.Text = "Assassin";
+                        pictureSecondHero.Image = IvanVGame.Properties.Resources.ASSASSIN;
+                        break;
+                    case 'm':
+                        labelSecondHero.Text = "Monk";
+                        pictureSecondHero.Image = IvanVGame.Properties.Resources.monk;
+                        break;
+                    case 'c':
+                        labelSecondHero.Text = "Clumsy";
+                        pictureSecondHero.Image = IvanVGame.Properties.Resources.Clumsy;
+                        break;
+
+                }
+            }
+        }
+
         /* Methods that initialize attributes after first/ second
          hero is instantiated */
         private void InitializeFirstHeroAttributes(Hero hero)
@@ -55,16 +133,6 @@ namespace IvanVGame
             healthBarFirst.Value = (int)hero.HealthPoints;
             attackBarFirst.Value = (int)hero.AttackPoints;
             armorBarFirst.Value = (int)hero.ArmorPoints;
-            if (engine.RandomStart() == 1)
-            {
-                btnAttackOfFirstHero.Enabled = true;
-                btnAttackOfSecondHero.Enabled = false;
-            }
-            else
-            {
-                btnAttackOfFirstHero.Enabled = false;
-                btnAttackOfSecondHero.Enabled = true;
-            }
         }
 
         private void InitializeSecondHeroAttributes(Hero hero)
@@ -76,163 +144,123 @@ namespace IvanVGame
 
         private void btnSelectWarriorFirst_Click(object sender, EventArgs e)
         {
-            engine.InitializeHero(1,'w');
-            labelFirstHero.Text = "Warrior";
-            HideControlsFirst();
-            InitializeFirstHeroAttributes(engine.HeroFirst);
-            pictureFirstHero.Image = IvanVGame.Properties.Resources.AC3L___Warrior;
+            HeroSelection(1, 'w');
         }
 
         private void btnSelectKnightFirst_Click(object sender, EventArgs e)
         {
-            engine.InitializeHero(1, 'k');
-            labelFirstHero.Text = "Knight";
-            HideControlsFirst();
-            InitializeFirstHeroAttributes(engine.HeroFirst);
-            pictureFirstHero.Image = IvanVGame.Properties.Resources.knight;
+            HeroSelection(1, 'k');
         }
 
         private void btnSelectAssassinFirst_Click(object sender, EventArgs e)
         {
-            engine.InitializeHero(1, 'a');
-            labelFirstHero.Text = "Assassin";
-            HideControlsFirst();
-            InitializeFirstHeroAttributes(engine.HeroFirst);
-            pictureFirstHero.Image = IvanVGame.Properties.Resources.ASSASSIN;
+            HeroSelection(1, 'a');
         }
 
         private void btnSelectMonkFirst_Click(object sender, EventArgs e)
         {
-            engine.InitializeHero(1, 'm');
-            labelFirstHero.Text = "Monk";
-            HideControlsFirst();
-            InitializeFirstHeroAttributes(engine.HeroFirst);
-            pictureFirstHero.Image = IvanVGame.Properties.Resources.monk;
+            HeroSelection(1, 'm');
         }
 
         private void btnSelectClumsyFirst_Click(object sender, EventArgs e)
         {
-            engine.InitializeHero(1, 'c');
-            labelFirstHero.Text = "Clumsy";
-            HideControlsFirst();
-            InitializeFirstHeroAttributes(engine.HeroFirst);
-            pictureFirstHero.Image = IvanVGame.Properties.Resources.Clumsy;
+            HeroSelection(1, 'c');
         }
 
         private void btnSelectWarriorSecond_Click(object sender, EventArgs e)
         {
-            engine.InitializeHero(2, 'w');
-            labelSecondHero.Text = "Warrior";
-            HideControlsSecond();
-            InitializeSecondHeroAttributes(engine.HeroSecond);
-            pictureSecondHero.Image = IvanVGame.Properties.Resources.AC3L___Warrior;
+            HeroSelection(2, 'w'); 
         }
 
         private void btnSelectKnightSecond_Click(object sender, EventArgs e)
         {
-            engine.InitializeHero(2, 'k');
-            labelSecondHero.Text = "Knight";
-            HideControlsSecond();
-            InitializeSecondHeroAttributes(engine.HeroSecond);
-            pictureSecondHero.Image = IvanVGame.Properties.Resources.knight;
+            HeroSelection(2, 'k');
         }
 
         private void btnSelectAssassinSecond_Click(object sender, EventArgs e)
         {
-            engine.InitializeHero(2, 'a');
-            labelSecondHero.Text = "Assassin";
-            HideControlsSecond();
-            InitializeSecondHeroAttributes(engine.HeroSecond);
-            pictureSecondHero.Image = IvanVGame.Properties.Resources.ASSASSIN;
+            HeroSelection(2, 'a');
         }
 
         private void btnSelectMonkSecond_Click(object sender, EventArgs e)
         {
-            engine.InitializeHero(2, 'm');
-            labelSecondHero.Text = "Monk";
-            HideControlsSecond();
-            InitializeSecondHeroAttributes(engine.HeroSecond);
-            pictureSecondHero.Image = IvanVGame.Properties.Resources.monk;
+            HeroSelection(2, 'm');
         }
 
         private void btnSelectClumsySecond_Click(object sender, EventArgs e)
         {
-            engine.InitializeHero(2, 'c');
-            labelSecondHero.Text = "Clumsy";
-            HideControlsSecond();
-            InitializeSecondHeroAttributes(engine.HeroSecond);
-            pictureSecondHero.Image = IvanVGame.Properties.Resources.Clumsy;
+            HeroSelection(2, 'c');
         }
 
-        /* Attack of first hero,
-         * makes sword  and shield visible,
-         * moves sword with timer tick method
-         * and performs an attack */
-        private void btnAttackOfFirstHero_Click(object sender, EventArgs e)
+        /* Attack of a hero,
+        * makes sword  and shield visible,
+        * moves sword with timer tick method
+        * and performs an attack */
+        private void Attack(Hero attackingHero, Hero attackedHero, int heroTurn)
         {
             if (!engine.ReadyToStart())
             {
                 MessageBox.Show("Hero not selected!", "Error!");
                 return;
             }
-            pictureSwordSecond.Visible = false;
-            pictureShieldFirst.Visible = false;
-            //Reset the location of the sword
-            pictureSwordSecond.Location = new Point(SecondSwordX, pictureSwordSecond.Location.Y);
-            pictureSwordFirst.Visible = true;
-            pictureShieldSecond.Visible = true;
-            timerSwordFirst.Enabled = true;
 
-            engine.AttackInProgress(engine.HeroFirst, engine.HeroSecond);
-            InitializeSecondHeroAttributes(engine.HeroSecond);//Reset attributes
-            if (engine.HeroFirst is Clumsy) //Reset attributes if the attacking hero is Clumsy
-            {
-                InitializeFirstHeroAttributes(engine.HeroFirst);
-            }
-            btnAttackOfFirstHero.Enabled = false;//Disable attack button
-            //if the hero wins
-            if (engine.HeroSecond.HealthPoints == .0m)
-            {
-                btnAttackOfSecondHero.Enabled = false;
-                MessageBox.Show("Hero one wins!", "Congratulations");
-                btnNewGame.Visible = true;
-                return;
-            }
-            btnAttackOfSecondHero.Enabled = true;//Second hero's turn
-        }
+            engine.AttackInProgress(attackingHero, attackedHero);
 
-
-        /* The same attack for the second hero */
-        private void btnAttackOfSecondHero_Click(object sender, EventArgs e)
-        {
-            if (!engine.ReadyToStart())
-            {
-                MessageBox.Show("Hero not selected!", "Error!");
-                return;
-            }
-            pictureShieldSecond.Visible = false;
-            pictureSwordFirst.Visible = false;
-            pictureSwordFirst.Location = new Point(FirstSwordX, pictureSwordFirst.Location.Y);            
-            pictureSwordSecond.Visible = true;
-            pictureShieldFirst.Visible = true;
-            timerSwordSecond.Enabled = true;
-
-
-            engine.AttackInProgress(engine.HeroSecond, engine.HeroFirst);
-            InitializeFirstHeroAttributes(engine.HeroFirst);
-            if (engine.HeroSecond is Clumsy)
-            {
-                InitializeSecondHeroAttributes(engine.HeroSecond);
-            }
-            btnAttackOfSecondHero.Enabled = false;
-            if (engine.HeroFirst.HealthPoints == .0m)
+            if (heroTurn == 1)
             {
                 btnAttackOfFirstHero.Enabled = false;
-                MessageBox.Show("Hero two wins!", "Congratulations");
+                pictureSwordSecond.Visible = false;
+                pictureShieldFirst.Visible = false;
+                //Reset the location of the sword
+                pictureSwordSecond.Location = new Point(SecondSwordX, pictureSwordSecond.Location.Y);
+                pictureSwordFirst.Visible = true;
+                pictureShieldSecond.Visible = true;
+                timerSwordFirst.Enabled = true;
+                InitializeSecondHeroAttributes(engine.HeroSecond);//Reset attributes
+                btnAttackOfSecondHero.Enabled = true;
+            }
+            else
+            {
+                btnAttackOfSecondHero.Enabled = false;
+                pictureShieldSecond.Visible = false;
+                pictureSwordFirst.Visible = false;
+                pictureSwordFirst.Location = new Point(FirstSwordX, pictureSwordFirst.Location.Y);
+                pictureSwordSecond.Visible = true;
+                pictureShieldFirst.Visible = true;
+                timerSwordSecond.Enabled = true;
+                InitializeFirstHeroAttributes(engine.HeroFirst);
+                btnAttackOfFirstHero.Enabled = true;
+            }
+
+            /* Reset attributes if the attacking hero is Clumsy in case
+             * he attacks himself */
+            if (attackingHero is Clumsy)
+            {
+                InitializeFirstHeroAttributes(engine.HeroFirst);
+                InitializeSecondHeroAttributes(engine.HeroSecond);
+            }
+
+            if (attackedHero.HealthPoints == .0m)
+            {
+                btnAttackOfFirstHero.Enabled = false;
+                btnAttackOfSecondHero.Enabled = false;
+                string message = heroTurn == 1 ? "Hero one wins!" : "Hero two wins!";
+                MessageBox.Show(message, "Congratulations");
                 btnNewGame.Visible = true;
                 return;
             }
-            btnAttackOfFirstHero.Enabled = true;
+
+            
+        }
+               
+        private void btnAttackOfFirstHero_Click(object sender, EventArgs e)
+        {
+            Attack(engine.HeroFirst, engine.HeroSecond, 1);
+        }
+                        
+        private void btnAttackOfSecondHero_Click(object sender, EventArgs e)
+        {
+            Attack(engine.HeroSecond, engine.HeroFirst, 2);
         }
 
         /* Restart the forms app */
