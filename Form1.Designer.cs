@@ -1,4 +1,4 @@
-﻿namespace IvanVGame
+namespace IvanVGame
 {
     partial class GameForm
     {
@@ -223,10 +223,11 @@
             this.btnSelectWarriorFirst.Location = new System.Drawing.Point(44, 271);
             this.btnSelectWarriorFirst.Name = "btnSelectWarriorFirst";
             this.btnSelectWarriorFirst.Size = new System.Drawing.Size(81, 39);
-            this.btnSelectWarriorFirst.TabIndex = 13;
+            this.btnSelectWarriorFirst.TabIndex = 1;
+            this.btnSelectWarriorFirst.Tag = "w";
             this.btnSelectWarriorFirst.Text = "Warrior";
             this.btnSelectWarriorFirst.UseVisualStyleBackColor = false;
-            this.btnSelectWarriorFirst.Click += new System.EventHandler(this.btnSelectWarriorFirst_Click);
+            this.btnSelectWarriorFirst.Click += new System.EventHandler(this.SelectHeroType);
             // 
             // btnSelectKnightFirst
             // 
@@ -236,10 +237,11 @@
             this.btnSelectKnightFirst.Location = new System.Drawing.Point(44, 316);
             this.btnSelectKnightFirst.Name = "btnSelectKnightFirst";
             this.btnSelectKnightFirst.Size = new System.Drawing.Size(81, 39);
-            this.btnSelectKnightFirst.TabIndex = 14;
+            this.btnSelectKnightFirst.TabIndex = 2;
+            this.btnSelectKnightFirst.Tag = "k";
             this.btnSelectKnightFirst.Text = "Knight";
             this.btnSelectKnightFirst.UseVisualStyleBackColor = false;
-            this.btnSelectKnightFirst.Click += new System.EventHandler(this.btnSelectKnightFirst_Click);
+            this.btnSelectKnightFirst.Click += new System.EventHandler(this.SelectHeroType);
             // 
             // btnSelectAssassinFirst
             // 
@@ -249,10 +251,11 @@
             this.btnSelectAssassinFirst.Location = new System.Drawing.Point(44, 361);
             this.btnSelectAssassinFirst.Name = "btnSelectAssassinFirst";
             this.btnSelectAssassinFirst.Size = new System.Drawing.Size(81, 39);
-            this.btnSelectAssassinFirst.TabIndex = 15;
+            this.btnSelectAssassinFirst.TabIndex = 3;
+            this.btnSelectAssassinFirst.Tag = "a";
             this.btnSelectAssassinFirst.Text = "Assassin";
             this.btnSelectAssassinFirst.UseVisualStyleBackColor = false;
-            this.btnSelectAssassinFirst.Click += new System.EventHandler(this.btnSelectAssassinFirst_Click);
+            this.btnSelectAssassinFirst.Click += new System.EventHandler(this.SelectHeroType);
             // 
             // btnSelectMonkFirst
             // 
@@ -262,10 +265,11 @@
             this.btnSelectMonkFirst.Location = new System.Drawing.Point(44, 406);
             this.btnSelectMonkFirst.Name = "btnSelectMonkFirst";
             this.btnSelectMonkFirst.Size = new System.Drawing.Size(81, 39);
-            this.btnSelectMonkFirst.TabIndex = 16;
+            this.btnSelectMonkFirst.TabIndex = 4;
+            this.btnSelectMonkFirst.Tag = "m";
             this.btnSelectMonkFirst.Text = "Monk";
             this.btnSelectMonkFirst.UseVisualStyleBackColor = false;
-            this.btnSelectMonkFirst.Click += new System.EventHandler(this.btnSelectMonkFirst_Click);
+            this.btnSelectMonkFirst.Click += new System.EventHandler(this.SelectHeroType);
             // 
             // btnSelectWarriorSecond
             // 
@@ -275,10 +279,11 @@
             this.btnSelectWarriorSecond.Location = new System.Drawing.Point(698, 271);
             this.btnSelectWarriorSecond.Name = "btnSelectWarriorSecond";
             this.btnSelectWarriorSecond.Size = new System.Drawing.Size(81, 39);
-            this.btnSelectWarriorSecond.TabIndex = 20;
+            this.btnSelectWarriorSecond.TabIndex = 6;
+            this.btnSelectWarriorSecond.Tag = "w";
             this.btnSelectWarriorSecond.Text = "Warrior";
             this.btnSelectWarriorSecond.UseVisualStyleBackColor = false;
-            this.btnSelectWarriorSecond.Click += new System.EventHandler(this.btnSelectWarriorSecond_Click);
+            this.btnSelectWarriorSecond.Click += new System.EventHandler(this.SelectHeroType);
             // 
             // btnSelectKnightSecond
             // 
@@ -288,10 +293,11 @@
             this.btnSelectKnightSecond.Location = new System.Drawing.Point(698, 316);
             this.btnSelectKnightSecond.Name = "btnSelectKnightSecond";
             this.btnSelectKnightSecond.Size = new System.Drawing.Size(81, 39);
-            this.btnSelectKnightSecond.TabIndex = 19;
+            this.btnSelectKnightSecond.TabIndex = 7;
+            this.btnSelectKnightSecond.Tag = "k";
             this.btnSelectKnightSecond.Text = "Knight";
             this.btnSelectKnightSecond.UseVisualStyleBackColor = false;
-            this.btnSelectKnightSecond.Click += new System.EventHandler(this.btnSelectKnightSecond_Click);
+            this.btnSelectKnightSecond.Click += new System.EventHandler(this.SelectHeroType);
             // 
             // btnSelectAssassinSecond
             // 
@@ -301,10 +307,11 @@
             this.btnSelectAssassinSecond.Location = new System.Drawing.Point(698, 361);
             this.btnSelectAssassinSecond.Name = "btnSelectAssassinSecond";
             this.btnSelectAssassinSecond.Size = new System.Drawing.Size(81, 39);
-            this.btnSelectAssassinSecond.TabIndex = 18;
+            this.btnSelectAssassinSecond.TabIndex = 8;
+            this.btnSelectAssassinSecond.Tag = "a";
             this.btnSelectAssassinSecond.Text = "Assassin";
             this.btnSelectAssassinSecond.UseVisualStyleBackColor = false;
-            this.btnSelectAssassinSecond.Click += new System.EventHandler(this.btnSelectAssassinSecond_Click);
+            this.btnSelectAssassinSecond.Click += new System.EventHandler(this.SelectHeroType);
             // 
             // btnSelectMonkSecond
             // 
@@ -314,10 +321,11 @@
             this.btnSelectMonkSecond.Location = new System.Drawing.Point(698, 406);
             this.btnSelectMonkSecond.Name = "btnSelectMonkSecond";
             this.btnSelectMonkSecond.Size = new System.Drawing.Size(81, 39);
-            this.btnSelectMonkSecond.TabIndex = 17;
+            this.btnSelectMonkSecond.TabIndex = 9;
+            this.btnSelectMonkSecond.Tag = "m";
             this.btnSelectMonkSecond.Text = "Monk";
             this.btnSelectMonkSecond.UseVisualStyleBackColor = false;
-            this.btnSelectMonkSecond.Click += new System.EventHandler(this.btnSelectMonkSecond_Click);
+            this.btnSelectMonkSecond.Click += new System.EventHandler(this.SelectHeroType);
             // 
             // labelSelectFirst
             // 
@@ -497,10 +505,11 @@
             this.btnSelectClumsyFirst.Location = new System.Drawing.Point(44, 451);
             this.btnSelectClumsyFirst.Name = "btnSelectClumsyFirst";
             this.btnSelectClumsyFirst.Size = new System.Drawing.Size(81, 39);
-            this.btnSelectClumsyFirst.TabIndex = 34;
+            this.btnSelectClumsyFirst.TabIndex = 5;
+            this.btnSelectClumsyFirst.Tag = "c";
             this.btnSelectClumsyFirst.Text = "Clumsy";
             this.btnSelectClumsyFirst.UseVisualStyleBackColor = false;
-            this.btnSelectClumsyFirst.Click += new System.EventHandler(this.btnSelectClumsyFirst_Click);
+            this.btnSelectClumsyFirst.Click += new System.EventHandler(this.SelectHeroType);
             // 
             // btnSelectClumsySecond
             // 
@@ -510,10 +519,11 @@
             this.btnSelectClumsySecond.Location = new System.Drawing.Point(698, 451);
             this.btnSelectClumsySecond.Name = "btnSelectClumsySecond";
             this.btnSelectClumsySecond.Size = new System.Drawing.Size(81, 39);
-            this.btnSelectClumsySecond.TabIndex = 35;
+            this.btnSelectClumsySecond.TabIndex = 10;
+            this.btnSelectClumsySecond.Tag = "c";
             this.btnSelectClumsySecond.Text = "Clumsy";
             this.btnSelectClumsySecond.UseVisualStyleBackColor = false;
-            this.btnSelectClumsySecond.Click += new System.EventHandler(this.btnSelectClumsySecond_Click);
+            this.btnSelectClumsySecond.Click += new System.EventHandler(this.SelectHeroType);
             // 
             // GameForm
             // 
@@ -618,3 +628,4 @@
     }
 }
 
+          
