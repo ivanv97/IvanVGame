@@ -141,7 +141,11 @@ namespace IvanVGame
             attackBarSecond.Value = (int)hero.AttackPoints;
             armorBarSecond.Value = (int)hero.ArmorPoints;
         }        
-
+        
+        /*Event handler that selects hero
+         *if tabindex is under or equal to 5 
+         *it selects first hero, otherwise second,
+         *and according to char parameter it determines hero type*/
         private void SelectHeroType(object sender, EventArgs e)
         {
             Button button = sender as Button;            
