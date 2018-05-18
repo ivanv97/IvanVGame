@@ -140,57 +140,13 @@ namespace IvanVGame
             healthBarSecond.Value = (int)hero.HealthPoints;
             attackBarSecond.Value = (int)hero.AttackPoints;
             armorBarSecond.Value = (int)hero.ArmorPoints;
-        }
+        }        
 
-        private void btnSelectWarriorFirst_Click(object sender, EventArgs e)
+        private void SelectHeroType(object sender, EventArgs e)
         {
-            HeroSelection(1, 'w');
-        }
-
-        private void btnSelectKnightFirst_Click(object sender, EventArgs e)
-        {
-            HeroSelection(1, 'k');
-        }
-
-        private void btnSelectAssassinFirst_Click(object sender, EventArgs e)
-        {
-            HeroSelection(1, 'a');
-        }
-
-        private void btnSelectMonkFirst_Click(object sender, EventArgs e)
-        {
-            HeroSelection(1, 'm');
-        }
-
-        private void btnSelectClumsyFirst_Click(object sender, EventArgs e)
-        {
-            HeroSelection(1, 'c');
-        }
-
-        private void btnSelectWarriorSecond_Click(object sender, EventArgs e)
-        {
-            HeroSelection(2, 'w'); 
-        }
-
-        private void btnSelectKnightSecond_Click(object sender, EventArgs e)
-        {
-            HeroSelection(2, 'k');
-        }
-
-        private void btnSelectAssassinSecond_Click(object sender, EventArgs e)
-        {
-            HeroSelection(2, 'a');
-        }
-
-        private void btnSelectMonkSecond_Click(object sender, EventArgs e)
-        {
-            HeroSelection(2, 'm');
-        }
-
-        private void btnSelectClumsySecond_Click(object sender, EventArgs e)
-        {
-            HeroSelection(2, 'c');
-        }
+            Button button = sender as Button;            
+            HeroSelection(Convert.ToInt32(button.TabIndex)<=5?1:2, Convert.ToChar(button.Tag));
+        }        
 
         /* Attack of a hero,
         * makes sword  and shield visible,
